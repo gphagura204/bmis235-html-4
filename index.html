@@ -3,15 +3,15 @@
   Author: Nihal
   GU username: gphagura
   Course: BMIS 235 - HTML-4 (Path 3: Full build)
-  A learning tool for the HTML-1 to HTML-3 concepts:
-  tags, head vs body, links, paths, the stylesheet, and the cascade.
+  A learning tool for ONE concept from HTML-1 to HTML-3:
+  how a link finds a file (relative paths in href="" and src="").
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Nihal">
-<title>HTML Field Guide</title>
+<title>Path Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -21,46 +21,169 @@
 
 <header class="top">
   <div class="wrap">
-    <p class="kicker">BMIS 235 · learn HTML-1 to HTML-3 your way</p>
-    <h1>HTML Field Guide</h1>
-    <p class="lede">Pick a concept, then pick how you learn best: <strong>listen</strong>, <strong>see</strong> it move, read it as a <strong>story</strong>, or <strong>practice</strong>.</p>
+    <p class="kicker">BMIS 235 · HTML-4 learning tool</p>
+    <h1>Path Finder</h1>
+    <p class="lede">One concept, four ways to learn it: <strong>how a link finds a file.</strong> Every <code>href=""</code> and <code>src=""</code> on your site is a set of directions. Get them wrong and your menu breaks, images don't load, and pages show up unstyled.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- concept picker: every mode follows this choice -->
-  <section class="picker" aria-label="Choose a concept">
-    <h2 class="label">1 · I'm learning…</h2>
-    <div id="conceptChips" class="chips" role="radiogroup"></div>
-    <div id="conceptCard" class="concept-card" aria-live="polite"></div>
-  </section>
-
-  <section aria-label="Choose how to learn">
-    <h2 class="label">2 · …and I learn best by</h2>
-    <div class="tabs" role="tablist">
-      <button role="tab" id="tab-listen" aria-controls="panel-listen" aria-selected="true">🎧 Listen</button>
-      <button role="tab" id="tab-see" aria-controls="panel-see" aria-selected="false">👀 See</button>
-      <button role="tab" id="tab-story" aria-controls="panel-story" aria-selected="false">📖 Story</button>
-      <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">🛠️ Practice</button>
+  <!-- the one concept, stated once, used by every mode -->
+  <section class="concept-card" aria-labelledby="ruleHead">
+    <div class="rules-grid">
+      <div>
+        <h2 id="ruleHead">The idea in one sentence</h2>
+        <p class="big">A relative path is <strong>directions that start from the folder the current page is in.</strong> Same path, different starting folder, different file.</p>
+        <ol class="four-rules">
+          <li><code>tokyo.html</code><span>stay in this folder</span></li>
+          <li><code>img/tokyo.png</code><span>go DOWN into <b>img/</b>, then find the file</span></li>
+          <li><code>../styles.css</code><span>go UP one folder, then find the file</span></li>
+          <li><code>Tokyo.png ≠ tokyo.png</code><span>spelling and capitals must match exactly</span></li>
+        </ol>
+      </div>
+      <div>
+        <p class="label">The example site used everywhere in this tool</p>
+        <pre class="code sitemap">my-site/
+├── index.html
+├── styles.css
+├── img/
+│   ├── home.png
+│   ├── london.png
+│   ├── tokyo.png
+│   └── kyoto.png
+└── pages/
+    ├── london.html
+    ├── tokyo.html
+    └── japan/
+        └── kyoto.html</pre>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== LISTEN ===================== -->
-  <section id="panel-listen" role="tabpanel" aria-labelledby="tab-listen" class="panel">
-    <h2>Listen: build a NotebookLM audio explainer</h2>
-    <p>Type any concept in your own words (or keep the one you picked above). You'll get two things to paste into <a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a>: accurate notes to use as the <em>source</em>, and a prompt that tells the podcast hosts how to explain it.</p>
+  <section aria-label="Choose how to learn">
+    <h2 class="label">How do you learn best?</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-see" aria-controls="panel-see" aria-selected="true">👀 See</button>
+      <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">🛠️ Practice</button>
+      <button role="tab" id="tab-story" aria-controls="panel-story" aria-selected="false">📖 Story</button>
+      <button role="tab" id="tab-listen" aria-controls="panel-listen" aria-selected="false">🎧 Listen</button>
+    </div>
+  </section>
 
+  <!-- ===================== SEE ===================== -->
+  <section id="panel-see" role="tabpanel" aria-labelledby="tab-see" class="panel">
+    <h2>See it happen</h2>
+    <div class="subtabs">
+      <button class="sub active" data-sub="see-path">Watch a link find a file</button>
+      <button class="sub" data-sub="see-sheet">One stylesheet, four folders</button>
+    </div>
+
+    <!-- A: path walker -->
+    <div id="see-path" class="subpanel">
+      <p>Pick which page you're on and type an <code>href</code> or <code>src</code>. Press <em>Follow the link</em> and watch the browser walk the folders, one step at a time, until it finds the file or hits a 404.</p>
+      <div class="controls">
+        <label class="field inline"><span>I'm on</span>
+          <select id="pathStart">
+            <option value="index.html">index.html (top folder)</option>
+            <option value="pages/london.html">pages/london.html (one folder down)</option>
+            <option value="pages/japan/kyoto.html">pages/japan/kyoto.html (two folders down)</option>
+          </select>
+        </label>
+        <label class="field inline grow"><span>path:</span>
+          <input id="pathHref" type="text" value="img/tokyo.png" spellcheck="false" autocapitalize="off" aria-label="Path to follow">
+        </label>
+        <button class="btn" id="pathGo">Follow the link ▶</button>
+      </div>
+      <p class="hint">Try one:</p>
+      <div class="presets" id="pathPresets"></div>
+      <div class="pathstage">
+        <div class="tree" id="pathTree" aria-label="Folder tree"></div>
+        <ol class="log" id="pathLog" aria-live="polite"></ol>
+      </div>
+    </div>
+
+    <!-- B: one stylesheet, pages in different folders -->
+    <div id="see-sheet" class="subpanel" hidden>
+      <p>All four pages want the <strong>same</strong> <code>styles.css</code> in the top folder. But they live in different folders, so each needs <strong>different directions</strong> to reach it. Right now they all say <code>href="styles.css"</code>. <strong>Fix each one until every page is styled.</strong></p>
+      <div class="minis" id="minis"></div>
+      <div class="feedback" id="sheetDone" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PRACTICE ===================== -->
+  <section id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" class="panel" hidden>
+    <h2>Practice</h2>
+    <div class="subtabs">
+      <button class="sub active" data-sub="pr-debug">Broken-menu debugger</button>
+      <button class="sub" data-sub="pr-missing">Find the missing link line</button>
+      <button class="sub" data-sub="pr-quiz">Quiz</button>
+    </div>
+
+    <!-- debugger -->
+    <div id="pr-debug" class="subpanel">
+      <p id="debugIntro"></p>
+      <div class="two">
+        <div>
+          <div class="filetree-mini" id="debugFiles"></div>
+          <textarea id="debugCode" class="codeedit" rows="8" spellcheck="false" autocapitalize="off" aria-label="Menu code to fix"></textarea>
+          <div class="controls">
+            <button class="btn" id="debugCheck">Check my menu</button>
+            <button class="btn ghost" id="debugHint">Hint</button>
+            <button class="btn ghost" id="debugReset">Reset</button>
+            <button class="btn ghost" id="debugNext">Next menu →</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="mini-h">Where the browser looks for each link</h3>
+          <ul class="results" id="debugResults" aria-live="polite"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- missing line game -->
+    <div id="pr-missing" class="subpanel" hidden>
+      <div class="gamebar"><span id="missRound"></span><span id="missScore"></span></div>
+      <p id="missPrompt" class="prompt"></p>
+      <pre class="code" id="missCode"></pre>
+      <div class="options" id="missOptions"></div>
+      <div class="feedback" id="missFeedback" aria-live="polite"></div>
+      <button class="btn" id="missNext" hidden>Next round →</button>
+    </div>
+
+    <!-- quiz -->
+    <div id="pr-quiz" class="subpanel" hidden>
+      <div id="quizBox" class="quiz"></div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section id="panel-story" role="tabpanel" aria-labelledby="tab-story" class="panel" hidden>
+    <h2>Story: the night before it's due</h2>
+    <p>A short story about a real kind of bug. It stops at each problem so you can guess the fix before you see it.</p>
+    <div class="controls">
+      <label class="field inline"><span>Your name</span><input id="storyName" type="text" value="Nihal"></label>
+      <label class="field inline"><span>A friend's name</span><input id="storyFriend" type="text" value="Maya"></label>
+    </div>
+    <article class="story" id="storyOut" aria-live="polite"></article>
+  </section>
+
+  <!-- ===================== LISTEN ===================== -->
+  <section id="panel-listen" role="tabpanel" aria-labelledby="tab-listen" class="panel" hidden>
+    <h2>Listen: make a NotebookLM audio explainer</h2>
+    <p>Pick the part of paths that confuses you, or type your own question. You get two things to paste into <a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a>: checked notes to use as the <em>source</em>, and a prompt that tells the AI hosts exactly how to explain it.</p>
+
+    <div class="presets" id="listenPresets"></div>
     <label class="field">
-      <span>What do you want explained?</span>
-      <input id="listenInput" type="text" placeholder="e.g. why does ../ mean go up a folder?">
+      <span>My question about paths</span>
+      <input id="listenInput" type="text">
     </label>
-    <p class="hint" id="listenMatch"></p>
 
     <ol class="steps">
       <li>Open NotebookLM and create a new notebook.</li>
       <li>Add a source → <strong>Copied text</strong> → paste <strong>Box A</strong>.</li>
       <li>In the Audio Overview card, choose <strong>Customize</strong> → paste <strong>Box B</strong> → Generate.</li>
+      <li>While you listen, keep the site map above open and point at each folder they mention.</li>
     </ol>
 
     <div class="two">
@@ -75,164 +198,10 @@
     </div>
   </section>
 
-  <!-- ===================== SEE ===================== -->
-  <section id="panel-see" role="tabpanel" aria-labelledby="tab-see" class="panel" hidden>
-    <h2>See it happen</h2>
-    <div class="subtabs" role="tablist">
-      <button class="sub active" data-sub="see-path">A link finding a file</button>
-      <button class="sub" data-sub="see-sheet">One stylesheet, four pages</button>
-      <button class="sub" data-sub="see-cascade">The cascade: who wins?</button>
-    </div>
-
-    <!-- A: path walker -->
-    <div id="see-path" class="subpanel">
-      <p>A relative path is <strong>directions starting from the folder the current page is in</strong>. Pick where you're standing and an <code>href</code>, then press <em>Follow the link</em> to watch the browser walk the folders.</p>
-      <div class="controls">
-        <label class="field inline"><span>I'm on</span>
-          <select id="pathStart">
-            <option value="index.html">index.html (top folder)</option>
-            <option value="pages/london.html">pages/london.html (inside a folder)</option>
-          </select>
-        </label>
-        <label class="field inline grow"><span>href=</span>
-          <input id="pathHref" type="text" value="img/london.png" spellcheck="false" autocapitalize="off">
-        </label>
-        <button class="btn" id="pathGo">Follow the link ▶</button>
-      </div>
-      <div class="presets" id="pathPresets"></div>
-      <div class="pathstage">
-        <div class="tree" id="pathTree" aria-label="Folder tree"></div>
-        <ol class="log" id="pathLog" aria-live="polite"></ol>
-      </div>
-    </div>
-
-    <!-- B: one stylesheet, four pages -->
-    <div id="see-sheet" class="subpanel" hidden>
-      <p>Every page has one line in its <code>&lt;head&gt;</code> that connects it to <code>styles.css</code>. Change the stylesheet once and watch every <strong>connected</strong> page change. Then break one page's link and see what happens.</p>
-      <div class="sheet-layout">
-        <div class="cssfile">
-          <div class="filetab">styles.css</div>
-          <div class="sheet-controls">
-            <label>background-color
-              <select id="ssBg">
-                <option value="#06224f">#06224f navy</option>
-                <option value="#fff7e6">#fff7e6 cream</option>
-                <option value="#1f3d2b">#1f3d2b forest</option>
-                <option value="#3b1f4a">#3b1f4a plum</option>
-              </select>
-            </label>
-            <label>color
-              <select id="ssColor">
-                <option value="#ebe9df">#ebe9df off-white</option>
-                <option value="#222222">#222222 charcoal</option>
-                <option value="#ffd166">#ffd166 sunshine</option>
-              </select>
-            </label>
-            <label>font-family
-              <select id="ssFont">
-                <option value="'Bungee', 'Arial Black', sans-serif">"Bungee", sans-serif</option>
-                <option value="Georgia, serif">Georgia, serif</option>
-                <option value="'JetBrains Mono', monospace">monospace</option>
-              </select>
-            </label>
-            <label>accent (h1 underline)
-              <select id="ssAccent">
-                <option value="#d4a359">#d4a359 gold</option>
-                <option value="#ef476f">#ef476f pink</option>
-                <option value="#06d6a0">#06d6a0 mint</option>
-              </select>
-            </label>
-          </div>
-          <pre class="code" id="ssCode"></pre>
-        </div>
-        <div class="minis" id="minis"></div>
-      </div>
-    </div>
-
-    <!-- C: cascade referee -->
-    <div id="see-cascade" class="subpanel" hidden>
-      <p>Several rules can try to color the same paragraph. Turn rules on and off. The preview isn't faked: <strong>the real browser decides</strong>, and we report which rule it picked and why.</p>
-      <div class="cascade">
-        <div>
-          <div class="rules" id="cascadeRules"></div>
-        </div>
-        <div>
-          <div class="referee" id="cascadeHost"></div>
-          <div class="verdict" id="cascadeVerdict" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== STORY ===================== -->
-  <section id="panel-story" role="tabpanel" aria-labelledby="tab-story" class="panel" hidden>
-    <h2>Story mode</h2>
-    <p>Same concept, told as a short story with characters. Put yourself in it:</p>
-    <div class="controls">
-      <label class="field inline"><span>Your name</span><input id="storyName" type="text" value="Nihal"></label>
-      <label class="field inline"><span>Your site is about</span><input id="storySite" type="text" value="travel"></label>
-    </div>
-    <article class="story" id="storyOut" aria-live="polite"></article>
-  </section>
-
-  <!-- ===================== PRACTICE ===================== -->
-  <section id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" class="panel" hidden>
-    <h2>Practice</h2>
-    <div class="subtabs">
-      <button class="sub active" data-sub="pr-quiz">Quiz</button>
-      <button class="sub" data-sub="pr-debug">Broken-menu debugger</button>
-      <button class="sub" data-sub="pr-missing">Find the missing line</button>
-    </div>
-
-    <!-- quiz -->
-    <div id="pr-quiz" class="subpanel">
-      <label class="check"><input type="checkbox" id="quizAll"> Mix in every concept (not just the one picked above)</label>
-      <div id="quizBox" class="quiz"></div>
-    </div>
-
-    <!-- debugger -->
-    <div id="pr-debug" class="subpanel" hidden>
-      <p id="debugIntro"></p>
-      <div class="two">
-        <div>
-          <div class="filetree-mini" id="debugFiles"></div>
-          <textarea id="debugCode" class="codeedit" rows="9" spellcheck="false" autocapitalize="off" aria-label="Menu code to fix"></textarea>
-          <div class="controls">
-            <button class="btn" id="debugCheck">Check my menu</button>
-            <button class="btn ghost" id="debugHint">Hint</button>
-            <button class="btn ghost" id="debugReset">Reset</button>
-            <button class="btn ghost" id="debugNext">Next menu →</button>
-          </div>
-        </div>
-        <div>
-          <h3 class="mini-h">What the browser does with each link</h3>
-          <ul class="results" id="debugResults" aria-live="polite"></ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- missing line game -->
-    <div id="pr-missing" class="subpanel" hidden>
-      <div class="gamebar"><span id="missRound"></span><span id="missScore"></span></div>
-      <p id="missPrompt" class="prompt"></p>
-      <div class="two">
-        <pre class="code" id="missCode"></pre>
-        <div>
-          <div class="preview" id="missPreview"></div>
-        </div>
-      </div>
-      <div class="options" id="missOptions"></div>
-      <div class="feedback" id="missFeedback" aria-live="polite"></div>
-      <button class="btn" id="missNext" hidden>Next round →</button>
-    </div>
-  </section>
-
 </main>
 
 <footer class="foot">
-  <div class="wrap">
-    Built by Nihal · BMIS 235 · HTML-4
-  </div>
+  <div class="wrap">Built by Nihal · BMIS 235 · HTML-4</div>
 </footer>
 
 <script src="learn.js"></script>
