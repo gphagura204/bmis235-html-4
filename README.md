@@ -6,9 +6,9 @@
 Path 3. TODO: why you picked it, in your own words (one or two sentences).
 
 ## By hand vs by AI
-**I made:** My HTML-3 travel site in `travel/` (the four pages, the image menu, `styles.css` with my navy/off-white/gold brand and Bungee font, and the showcase block I adapted). I picked the six concepts the tool covers and the four learning modes. The Field Guide reuses my brand colors and font. TODO: add anything else you did yourself.
+**I made:** The brand the Field Guide uses (navy/off-white/gold colors and Bungee font) comes from my HTML-3 travel site, which I built by hand and which lives separately in my `bmis235-html-3` repo. I picked the six concepts the tool covers and the four learning modes. TODO: add anything else you did yourself.
 
-**AI made:** Claude Code (on claude.ai, connected to this GitHub repo) wrote the learning tool: `index.html`, `learn.css` and `learn.js`. That covers the concept notes, the NotebookLM prompt builder, the three animations (link finding a file, one stylesheet styling four pages, cascade referee), the six stories, the quiz, the broken-menu debugger and the missing-line game. It also moved my travel site into `travel/` and added `wrangler.jsonc`/`.assetsignore` for Cloudflare.
+**AI made:** Claude Code (on claude.ai, connected to this GitHub repo) wrote the learning tool: `index.html`, `learn.css` and `learn.js`. That covers the concept notes, the NotebookLM prompt builder, the three animations (link finding a file, one stylesheet styling four pages, cascade referee), the six stories, the quiz, the broken-menu debugger and the missing-line game. It also added `wrangler.jsonc`/`.assetsignore` for Cloudflare.
 
 **I checked it by:** TODO: describe what you actually did. Ideas:
 - Followed every path in "A link finding a file" myself and predicted the result before pressing play. Did the 404s happen where I expected?
