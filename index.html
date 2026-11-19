@@ -1,185 +1,239 @@
 <!DOCTYPE html>
 <!--
-  Author: YOUR NAME
-  GU username: YOUR-GU-USERNAME
-  Course: BMIS 235 - HTML-3
+  Author: Nihal
+  Course: BMIS 235 - HTML-4 (Path 3: Full build)
+  A learning tool for the HTML-1 to HTML-3 concepts:
+  tags, head vs body, links, paths, the stylesheet, and the cascade.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="author" content="YOUR NAME">
-<title>Home</title>
-
-<!-- this one line connects the page to the stylesheet -->
-<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Nihal">
+<title>HTML Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="learn.css">
 </head>
 <body>
 
-<!-- ===== MENU ============================================================
-     The menu is four links. Each link wraps an image instead of words.
-     Build it once on this page, check that every link works,
-     then copy the whole <nav> block and paste it over the menu on the
-     other three pages, so every page has the exact same menu.
-     ===================================================================== -->
-<nav>
-    <a href="index.html"><img src="img/home.png" alt="Home"></a>
-    <a href="london.html"><img src="img/london.png" alt="London"></a>
-    <a href="new york.html"><img src="img/new york.png" alt="New York"></a>
-    <a href="tokyo.html"><img src="img/tokyo.png" alt="Tokyo"></a>
-</nav>
-
-<h1>Home</h1>
-<p>This webiste includes 3 locations I want to travel to sometime in the future.</p>
-  
-
-<!-- ===== SHOWCASE ======================================================
-     This box is empty on purpose. In Part 7 you paste an interactive
-     graphic BETWEEN the opening <div> and the closing </div> below.
-     ===================================================================== -->
-<div<!-- HTML: the cartoon world map, three city pins, the plane, and the info box -->
-<div class="sc-wrap">
-  <svg class="sc-map" viewBox="0 0 400 205" role="img" aria-label="Cartoon world map with a plane flying between New York, London and Tokyo">
-    <rect class="sc-ocean" x="0" y="0" width="400" height="205" rx="18" fill="#123f85"/>
-
-    <g class="sc-land" fill="#d4a359">
-      <!-- North America -->
-      <path d="M23,34 L52,29 L69,29 L100,26 L116,32 L135,42 L142,55 L130,62 L120,71 L115,80 L116,87 L113,82 L105,82 L98,86 L98,94 L108,93 L109,100 L113,108 L118,110 L111,106 L103,100 L90,94 L84,89 L82,81 L77,78 L70,68 L70,58 L58,45 L42,42 L27,42 Z"/>
-      <!-- Greenland -->
-      <path d="M123,19 L147,12 L179,16 L174,29 L155,42 L145,36 L137,21 Z"/>
-      <!-- South America -->
-      <path d="M119,108 L135,107 L147,120 L163,128 L160,140 L150,152 L139,166 L132,175 L129,190 L122,185 L123,169 L125,146 L120,138 L115,126 L116,120 Z"/>
-      <!-- Europe + Asia -->
-      <path d="M190,72 L190,64 L199,60 L195,58 L204,54 L208,50 L208,46 L212,43 L205,42 L205,39 L216,30 L229,28 L263,29 L284,25 L316,20 L347,26 L378,29 L387,36 L368,42 L363,46 L350,52 L347,60 L336,65 L335,74 L332,74 L332,70 L328,68 L327,78 L326,87 L315,93 L313,99 L314,105 L310,108 L306,103 L308,118 L305,112 L303,108 L303,99 L299,98 L297,91 L291,93 L284,100 L281,110 L277,98 L276,93 L270,87 L261,86 L259,85 L251,81 L252,86 L259,89 L263,91 L258,99 L249,100 L245,99 L241,93 L237,84 L236,80 L238,73 L229,72 L227,68 L221,68 L220,65 L213,63 L208,63 L203,64 L200,69 L195,72 Z"/>
-      <!-- United Kingdom -->
-      <path d="M195,55 L201,54 L202,51 L198,47 L195,45 L194,48 L196,52 Z"/>
-      <!-- Africa -->
-      <path d="M182,93 L190,81 L195,76 L210,74 L221,78 L234,80 L237,86 L243,105 L251,106 L244,121 L242,140 L235,154 L221,166 L219,164 L213,142 L210,121 L210,115 L192,114 L184,106 Z"/>
-      <!-- Japan -->
-      <path d="M337,80 L343,76 L348,73 L349,68 L348,64 L346,67 L346,72 L342,75 L337,77 Z"/>
-      <!-- Indonesia -->
-      <ellipse cx="322" cy="120" rx="8" ry="7"/>
-      <ellipse cx="300" cy="121" rx="11" ry="3.5" transform="rotate(40 300 121)"/>
-      <!-- Australia -->
-      <path d="M320,149 L328,143 L337,136 L344,136 L349,134 L353,145 L361,154 L358,168 L348,169 L337,162 L321,164 Z"/>
-    </g>
-
-    <rect class="sc-ring" x="1.5" y="1.5" width="397" height="202" rx="17" fill="none" stroke="#ebe9df" stroke-width="3"/>
-    <path id="scRoute" class="sc-route" fill="none" stroke="#ebe9df" stroke-width="2" stroke-dasharray="4 6" opacity="0.7" d="M121,68 Q160,30 200,53 Q280,5 346,73 Q230,150 121,68"/>
-
-    <g class="sc-pin" data-city="ny" tabindex="0" role="button" aria-label="New York">
-      <circle class="sc-hit" cx="121" cy="68" r="16" fill="transparent"/>
-      <circle class="sc-dot" cx="121" cy="68" r="6" fill="#ebe9df" stroke="#06224f" stroke-width="3"/>
-      <text class="sc-label" x="121" y="92" text-anchor="middle" font-size="12" fill="#ebe9df" stroke="#06224f" stroke-width="3" paint-order="stroke">New York</text>
-    </g>
-    <g class="sc-pin" data-city="london" tabindex="0" role="button" aria-label="London">
-      <circle class="sc-hit" cx="200" cy="53" r="16" fill="transparent"/>
-      <circle class="sc-dot" cx="200" cy="53" r="6" fill="#ebe9df" stroke="#06224f" stroke-width="3"/>
-      <text class="sc-label" x="200" y="38" text-anchor="middle" font-size="12" fill="#ebe9df" stroke="#06224f" stroke-width="3" paint-order="stroke">London</text>
-    </g>
-    <g class="sc-pin" data-city="tokyo" tabindex="0" role="button" aria-label="Tokyo">
-      <circle class="sc-hit" cx="346" cy="73" r="16" fill="transparent"/>
-      <circle class="sc-dot" cx="346" cy="73" r="6" fill="#ebe9df" stroke="#06224f" stroke-width="3"/>
-      <text class="sc-label" x="346" y="96" text-anchor="middle" font-size="12" fill="#ebe9df" stroke="#06224f" stroke-width="3" paint-order="stroke">Tokyo</text>
-    </g>
-
-    <g id="scPlane" class="sc-plane" fill="#ebe9df" stroke="#06224f" stroke-width="1.5">
-      <path d="M14,0 L2,-3 L-4,-12 L-7,-12 L-3,-2 L-9,-4 L-11,-3 L-8,0 L-11,3 L-9,4 L-3,2 L-7,12 L-4,12 L2,3 Z"/>
-    </g>
-  </svg>
-
-  <div class="sc-info" aria-live="polite">
-    <div class="sc-name">Tap a city</div>
-    <div class="sc-line">Click New York, London or Tokyo to see info.</div>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">BMIS 235 · learn HTML-1 to HTML-3 your way</p>
+    <h1>HTML Field Guide</h1>
+    <p class="lede">Pick a concept, then pick how you learn best: <strong>listen</strong>, <strong>see</strong> it move, read it as a <strong>story</strong>, or <strong>practice</strong>.</p>
   </div>
-</div>
+</header>
 
-<!-- CSS: brand colors and Bungee font, sizing so it stays under 500px tall and fits phones -->
-<style>
-  .showcase .sc-wrap {
-    max-width: 520px;
-    margin: 0 auto;
-    font-family: "Bungee", "Arial Black", Impact, sans-serif;
-  }
-  .showcase .sc-map {
-    display: block;
-    width: 100%;
-    max-height: 290px;
-  }
-  .showcase .sc-pin { cursor: pointer; outline: none; }
-  .showcase .sc-pin:hover .sc-dot,
-  .showcase .sc-pin:focus .sc-dot,
-  .showcase .sc-pin.sc-active .sc-dot { fill: #06224f; stroke: #ebe9df; }
-  .showcase .sc-label { pointer-events: none; }
-  .showcase .sc-plane { pointer-events: none; }
-  .showcase .sc-info {
-    box-sizing: border-box;
-    min-height: 90px;
-    margin-top: 8px;
-    padding: 10px 14px;
-    background: #ebe9df;
-    color: #06224f;
-    border: 3px solid #d4a359;
-    border-radius: 12px;
-    text-align: center;
-  }
-  .showcase .sc-name { font-size: 22px; margin-bottom: 4px; }
-  .showcase .sc-line { font-size: 14px; line-height: 1.3; }
-</style>
+<main class="wrap">
 
-<!-- JavaScript: flies the plane along the route and shows city info when a pin is clicked -->
-<script>
-  (function () {
-    var wrap = document.querySelector('.sc-wrap');
-    if (!wrap) return;
+  <!-- concept picker: every mode follows this choice -->
+  <section class="picker" aria-label="Choose a concept">
+    <h2 class="label">1 · I'm learning…</h2>
+    <div id="conceptChips" class="chips" role="radiogroup"></div>
+    <div id="conceptCard" class="concept-card" aria-live="polite"></div>
+  </section>
 
-    var cities = {
-      ny: { name: 'New York', pop: 'About 8.3 million people', known: 'Known for: Statue of Liberty, Times Square' },
-      london: { name: 'London', pop: 'About 8.9 million people', known: 'Known for: Big Ben, Tower Bridge' },
-      tokyo: { name: 'Tokyo', pop: 'About 14 million people', known: 'Known for: Shibuya Crossing, Tokyo Skytree' }
-    };
+  <section aria-label="Choose how to learn">
+    <h2 class="label">2 · …and I learn best by</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-listen" aria-controls="panel-listen" aria-selected="true">🎧 Listen</button>
+      <button role="tab" id="tab-see" aria-controls="panel-see" aria-selected="false">👀 See</button>
+      <button role="tab" id="tab-story" aria-controls="panel-story" aria-selected="false">📖 Story</button>
+      <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">🛠️ Practice</button>
+    </div>
+  </section>
 
-    var info = wrap.querySelector('.sc-info');
-    var pins = wrap.querySelectorAll('.sc-pin');
+  <!-- ===================== LISTEN ===================== -->
+  <section id="panel-listen" role="tabpanel" aria-labelledby="tab-listen" class="panel">
+    <h2>Listen: build a NotebookLM audio explainer</h2>
+    <p>Type any concept in your own words (or keep the one you picked above). You'll get two things to paste into <a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a>: accurate notes to use as the <em>source</em>, and a prompt that tells the podcast hosts how to explain it.</p>
 
-    function show(key, pin) {
-      var c = cities[key];
-      info.innerHTML =
-        '<div class="sc-name">' + c.name + '</div>' +
-        '<div class="sc-line">Population: ' + c.pop + '</div>' +
-        '<div class="sc-line">' + c.known + '</div>';
-      for (var i = 0; i < pins.length; i++) pins[i].classList.remove('sc-active');
-      pin.classList.add('sc-active');
-    }
+    <label class="field">
+      <span>What do you want explained?</span>
+      <input id="listenInput" type="text" placeholder="e.g. why does ../ mean go up a folder?">
+    </label>
+    <p class="hint" id="listenMatch"></p>
 
-    pins.forEach(function (pin) {
-      pin.addEventListener('click', function () { show(pin.getAttribute('data-city'), pin); });
-      pin.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          show(pin.getAttribute('data-city'), pin);
-        }
-      });
-    });
+    <ol class="steps">
+      <li>Open NotebookLM and create a new notebook.</li>
+      <li>Add a source → <strong>Copied text</strong> → paste <strong>Box A</strong>.</li>
+      <li>In the Audio Overview card, choose <strong>Customize</strong> → paste <strong>Box B</strong> → Generate.</li>
+    </ol>
 
-    var route = wrap.querySelector('#scRoute');
-    var plane = wrap.querySelector('#scPlane');
-    var len = route.getTotalLength();
-    var duration = 14000;
+    <div class="two">
+      <div class="copybox">
+        <div class="copyhead"><strong>Box A · Source notes</strong><button class="btn small" data-copy="listenSource">Copy</button></div>
+        <textarea id="listenSource" readonly rows="14"></textarea>
+      </div>
+      <div class="copybox">
+        <div class="copyhead"><strong>Box B · Customize prompt</strong><button class="btn small" data-copy="listenPrompt">Copy</button></div>
+        <textarea id="listenPrompt" readonly rows="14"></textarea>
+      </div>
+    </div>
+  </section>
 
-    function fly(t) {
-      var d = ((t % duration) / duration) * len;
-      var p = route.getPointAtLength(d);
-      var q = route.getPointAtLength((d + 2) % len);
-      var angle = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI;
-      plane.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') rotate(' + angle + ')');
-      requestAnimationFrame(fly);
-    }
-    requestAnimationFrame(fly);
-  })();
-</script></div>
+  <!-- ===================== SEE ===================== -->
+  <section id="panel-see" role="tabpanel" aria-labelledby="tab-see" class="panel" hidden>
+    <h2>See it happen</h2>
+    <div class="subtabs" role="tablist">
+      <button class="sub active" data-sub="see-path">A link finding a file</button>
+      <button class="sub" data-sub="see-sheet">One stylesheet, four pages</button>
+      <button class="sub" data-sub="see-cascade">The cascade: who wins?</button>
+    </div>
 
-<!-- Footer: fill in your name -->
-<footer>Built by Nihal &middot; BMIS 235</footer>
+    <!-- A: path walker -->
+    <div id="see-path" class="subpanel">
+      <p>A relative path is <strong>directions starting from the folder the current page is in</strong>. Pick where you're standing and an <code>href</code>, then press <em>Follow the link</em> to watch the browser walk the folders.</p>
+      <div class="controls">
+        <label class="field inline"><span>I'm on</span>
+          <select id="pathStart">
+            <option value="index.html">index.html (top folder)</option>
+            <option value="pages/london.html">pages/london.html (inside a folder)</option>
+          </select>
+        </label>
+        <label class="field inline grow"><span>href=</span>
+          <input id="pathHref" type="text" value="img/london.png" spellcheck="false" autocapitalize="off">
+        </label>
+        <button class="btn" id="pathGo">Follow the link ▶</button>
+      </div>
+      <div class="presets" id="pathPresets"></div>
+      <div class="pathstage">
+        <div class="tree" id="pathTree" aria-label="Folder tree"></div>
+        <ol class="log" id="pathLog" aria-live="polite"></ol>
+      </div>
+    </div>
 
+    <!-- B: one stylesheet, four pages -->
+    <div id="see-sheet" class="subpanel" hidden>
+      <p>Every page has one line in its <code>&lt;head&gt;</code> that connects it to <code>styles.css</code>. Change the stylesheet once and watch every <strong>connected</strong> page change. Then break one page's link and see what happens.</p>
+      <div class="sheet-layout">
+        <div class="cssfile">
+          <div class="filetab">styles.css</div>
+          <div class="sheet-controls">
+            <label>background-color
+              <select id="ssBg">
+                <option value="#06224f">#06224f navy</option>
+                <option value="#fff7e6">#fff7e6 cream</option>
+                <option value="#1f3d2b">#1f3d2b forest</option>
+                <option value="#3b1f4a">#3b1f4a plum</option>
+              </select>
+            </label>
+            <label>color
+              <select id="ssColor">
+                <option value="#ebe9df">#ebe9df off-white</option>
+                <option value="#222222">#222222 charcoal</option>
+                <option value="#ffd166">#ffd166 sunshine</option>
+              </select>
+            </label>
+            <label>font-family
+              <select id="ssFont">
+                <option value="'Bungee', 'Arial Black', sans-serif">"Bungee", sans-serif</option>
+                <option value="Georgia, serif">Georgia, serif</option>
+                <option value="'JetBrains Mono', monospace">monospace</option>
+              </select>
+            </label>
+            <label>accent (h1 underline)
+              <select id="ssAccent">
+                <option value="#d4a359">#d4a359 gold</option>
+                <option value="#ef476f">#ef476f pink</option>
+                <option value="#06d6a0">#06d6a0 mint</option>
+              </select>
+            </label>
+          </div>
+          <pre class="code" id="ssCode"></pre>
+        </div>
+        <div class="minis" id="minis"></div>
+      </div>
+    </div>
+
+    <!-- C: cascade referee -->
+    <div id="see-cascade" class="subpanel" hidden>
+      <p>Several rules can try to color the same paragraph. Turn rules on and off. The preview isn't faked: <strong>the real browser decides</strong>, and we report which rule it picked and why.</p>
+      <div class="cascade">
+        <div>
+          <div class="rules" id="cascadeRules"></div>
+        </div>
+        <div>
+          <div class="referee" id="cascadeHost"></div>
+          <div class="verdict" id="cascadeVerdict" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section id="panel-story" role="tabpanel" aria-labelledby="tab-story" class="panel" hidden>
+    <h2>Story mode</h2>
+    <p>Same concept, told as a short story with characters. Put yourself in it:</p>
+    <div class="controls">
+      <label class="field inline"><span>Your name</span><input id="storyName" type="text" value="Nihal"></label>
+      <label class="field inline"><span>Your site is about</span><input id="storySite" type="text" value="travel"></label>
+    </div>
+    <article class="story" id="storyOut" aria-live="polite"></article>
+  </section>
+
+  <!-- ===================== PRACTICE ===================== -->
+  <section id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" class="panel" hidden>
+    <h2>Practice</h2>
+    <div class="subtabs">
+      <button class="sub active" data-sub="pr-quiz">Quiz</button>
+      <button class="sub" data-sub="pr-debug">Broken-menu debugger</button>
+      <button class="sub" data-sub="pr-missing">Find the missing line</button>
+    </div>
+
+    <!-- quiz -->
+    <div id="pr-quiz" class="subpanel">
+      <label class="check"><input type="checkbox" id="quizAll"> Mix in every concept (not just the one picked above)</label>
+      <div id="quizBox" class="quiz"></div>
+    </div>
+
+    <!-- debugger -->
+    <div id="pr-debug" class="subpanel" hidden>
+      <p id="debugIntro"></p>
+      <div class="two">
+        <div>
+          <div class="filetree-mini" id="debugFiles"></div>
+          <textarea id="debugCode" class="codeedit" rows="9" spellcheck="false" autocapitalize="off" aria-label="Menu code to fix"></textarea>
+          <div class="controls">
+            <button class="btn" id="debugCheck">Check my menu</button>
+            <button class="btn ghost" id="debugHint">Hint</button>
+            <button class="btn ghost" id="debugReset">Reset</button>
+            <button class="btn ghost" id="debugNext">Next menu →</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="mini-h">What the browser does with each link</h3>
+          <ul class="results" id="debugResults" aria-live="polite"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- missing line game -->
+    <div id="pr-missing" class="subpanel" hidden>
+      <div class="gamebar"><span id="missRound"></span><span id="missScore"></span></div>
+      <p id="missPrompt" class="prompt"></p>
+      <div class="two">
+        <pre class="code" id="missCode"></pre>
+        <div>
+          <div class="preview" id="missPreview"></div>
+        </div>
+      </div>
+      <div class="options" id="missOptions"></div>
+      <div class="feedback" id="missFeedback" aria-live="polite"></div>
+      <button class="btn" id="missNext" hidden>Next round →</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    Built by Nihal · BMIS 235 · <a href="travel/index.html">See my HTML-3 travel site</a> (a real example of every concept here)
+  </div>
+</footer>
+
+<script src="learn.js"></script>
 </body>
 </html>

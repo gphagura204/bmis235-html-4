@@ -1,15 +1,18 @@
-# BMIS 235 · HTML-3 · Links + CSS: Your Own Site
+# BMIS 235 · HTML-4 · Path 3: HTML Field Guide
 
-**Name:** YOUR NAME
-**GU username:** YOUR-GU-USERNAME
+**Name:** Nihal
 
-My live page: https://YOUR-GITHUB-USERNAME.github.io/bmis235-html-3/
+A learning tool for the HTML-1 to HTML-3 concepts (tags, head vs body, links, paths, the stylesheet, the cascade). Pick a concept, then pick how you learn:
 
-Instructions: https://gu-27.github.io/html-module/html-3.html
+- **🎧 Listen**: type a concept or question and get NotebookLM source notes plus an Audio Overview prompt, ready to paste.
+- **👀 See**: watch a link walk the folders to find a file (or hit a 404), watch one `styles.css` restyle four pages (and break one page's link line), and see the cascade decided live by the real browser.
+- **📖 Story**: each concept as a short story with characters, starring you and your site.
+- **🛠️ Practice**: a quiz, a broken-menu debugger (3 menus), and a "find the missing line" game (5 rounds).
 
-## What's in this folder
+Live site: https://YOUR-PROJECT.pages.dev  ← paste your Cloudflare link here
 
-- `index.html` — your home page (keep this name)
-- `page1.html`, `page2.html`, `page3.html` — rename these to your own page names
-- `styles.css` — your brand: one file that styles every page linked to it
-- `img/` — your menu images (replace these with the ones you make in Excel)
+## Files
+- `index.html`, `learn.css`, `learn.js`: the learning tool (plain HTML/CSS/JS, no build step)
+- `travel/`: my HTML-3 travel site, kept as a real example
+- `FEEDBACK.md`: classmate test notes and what I changed
+- `wrangler.jsonc`, `.assetsignore`: only used if Cloudflare deploys this as a Worker
