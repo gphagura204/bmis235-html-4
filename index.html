@@ -3,15 +3,15 @@
   Author: Nihal
   GU username: gphagura
   Course: BMIS 235 - HTML-4 (Path 3: Full build)
-  A learning tool for ONE concept from HTML-1 to HTML-3:
-  how a link finds a file (relative paths in href="" and src="").
+  A beginner learning tool for ONE concept from HTML-3:
+  the stylesheet (one styles.css file styles every page that links to it).
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Nihal">
-<title>Path Finder</title>
+<title>One File, Every Page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -22,92 +22,111 @@
 <header class="top">
   <div class="wrap">
     <p class="kicker">BMIS 235 · HTML-4 learning tool</p>
-    <h1>Path Finder</h1>
-    <p class="lede">One concept, four ways to learn it: <strong>how a link finds a file.</strong> Every <code>href=""</code> and <code>src=""</code> on your site is a set of directions. Get them wrong and your menu breaks, images don't load, and pages show up unstyled.</p>
+    <h1>One File, Every Page</h1>
+    <p class="lede">Learn how a single file called <strong>styles.css</strong> controls the look of your whole website. No coding experience needed.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- the one concept, stated once, used by every mode -->
-  <section class="concept-card" aria-labelledby="ruleHead">
-    <div class="rules-grid">
-      <div>
-        <h2 id="ruleHead">The idea in one sentence</h2>
-        <p class="big">A relative path is <strong>directions that start from the folder the current page is in.</strong> Same path, different starting folder, different file.</p>
-        <ol class="four-rules">
-          <li><code>tokyo.html</code><span>stay in this folder</span></li>
-          <li><code>img/tokyo.png</code><span>go DOWN into <b>img/</b>, then find the file</span></li>
-          <li><code>../styles.css</code><span>go UP one folder, then find the file</span></li>
-          <li><code>Tokyo.png ≠ tokyo.png</code><span>spelling and capitals must match exactly</span></li>
-        </ol>
-      </div>
-      <div>
-        <p class="label">The example site used everywhere in this tool</p>
-        <pre class="code sitemap">my-site/
-├── index.html
-├── styles.css
-├── img/
-│   ├── home.png
-│   ├── london.png
-│   ├── tokyo.png
-│   └── kyoto.png
-└── pages/
-    ├── london.html
-    ├── tokyo.html
-    └── japan/
-        └── kyoto.html</pre>
-      </div>
+  <!-- ===== THE BIG IDEA ===== -->
+  <section class="card">
+    <h2>The big idea</h2>
+    <ol class="idea">
+      <li>
+        <span class="num">1</span>
+        <div><strong>A website is a few pages.</strong> Each page is its own file, like <code>index.html</code> (the home page) or <code>tokyo.html</code>.</div>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <div><strong>The look lives in one separate file: <code>styles.css</code>.</strong> Colors, fonts and sizes all go there, not in the pages.</div>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <div><strong>Each page has one line that says "use styles.css."</strong> It goes near the top of the page:
+          <pre class="code">&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+        </div>
+      </li>
+    </ol>
+    <div class="result">
+      <p>✅ <strong>Change styles.css once, and every page with that line changes.</strong></p>
+      <p>❌ <strong>A page without that line (or with a typo in it) looks plain:</strong> white background, black text, blue underlined links. That's the browser's default look.</p>
     </div>
+
+    <details class="words">
+      <summary>📘 Words to know</summary>
+      <dl>
+        <dt>Page / .html file</dt><dd>One page of your website, for example <code>tokyo.html</code>.</dd>
+        <dt>Stylesheet / .css file</dt><dd>The file that holds your site's look. Ours is called <code>styles.css</code>.</dd>
+        <dt>The link line</dt><dd><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>. It connects a page to the stylesheet.</dd>
+        <dt>rel="stylesheet"</dt><dd>Tells the browser "this file is a stylesheet."</dd>
+        <dt>href="styles.css"</dt><dd>Tells the browser which file. The name must match the real file exactly.</dd>
+        <dt>&lt;head&gt;</dt><dd>The top section of a page that visitors don't see. The link line goes here.</dd>
+      </dl>
+    </details>
   </section>
 
   <section aria-label="Choose how to learn">
-    <h2 class="label">How do you learn best?</h2>
+    <h2 class="label">Pick how you want to learn it</h2>
     <div class="tabs" role="tablist">
-      <button role="tab" id="tab-see" aria-controls="panel-see" aria-selected="true">👀 See</button>
+      <button role="tab" id="tab-see" aria-controls="panel-see" aria-selected="true">👀 See it</button>
       <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">🛠️ Practice</button>
-      <button role="tab" id="tab-story" aria-controls="panel-story" aria-selected="false">📖 Story</button>
       <button role="tab" id="tab-listen" aria-controls="panel-listen" aria-selected="false">🎧 Listen</button>
     </div>
   </section>
 
   <!-- ===================== SEE ===================== -->
   <section id="panel-see" role="tabpanel" aria-labelledby="tab-see" class="panel">
-    <h2>See it happen</h2>
-    <div class="subtabs">
-      <button class="sub active" data-sub="see-path">Watch a link find a file</button>
-      <button class="sub" data-sub="see-sheet">One stylesheet, four folders</button>
+    <h2>See it: one stylesheet, four pages</h2>
+    <div class="trythis">
+      <strong>Try this:</strong>
+      <ol>
+        <li>Change the <b>background color</b> on the left. Watch all four pages change at once.</li>
+        <li>Under the Tokyo page, switch it to <b>"No link line."</b> It goes plain.</li>
+        <li>Change the color again. Tokyo doesn't change, because it isn't connected anymore.</li>
+      </ol>
     </div>
 
-    <!-- A: path walker -->
-    <div id="see-path" class="subpanel">
-      <p>Pick which page you're on and type an <code>href</code> or <code>src</code>. Press <em>Follow the link</em> and watch the browser walk the folders, one step at a time, until it finds the file or hits a 404.</p>
-      <div class="controls">
-        <label class="field inline"><span>I'm on</span>
-          <select id="pathStart">
-            <option value="index.html">index.html (top folder)</option>
-            <option value="pages/london.html">pages/london.html (one folder down)</option>
-            <option value="pages/japan/kyoto.html">pages/japan/kyoto.html (two folders down)</option>
-          </select>
-        </label>
-        <label class="field inline grow"><span>path:</span>
-          <input id="pathHref" type="text" value="img/tokyo.png" spellcheck="false" autocapitalize="off" aria-label="Path to follow">
-        </label>
-        <button class="btn" id="pathGo">Follow the link ▶</button>
+    <div class="sheet-layout">
+      <div class="cssfile">
+        <div class="filetab">styles.css</div>
+        <div class="sheet-controls">
+          <label>Background color
+            <select id="ssBg">
+              <option value="#06224f">Navy</option>
+              <option value="#fff7e6">Cream</option>
+              <option value="#1f3d2b">Forest green</option>
+              <option value="#3b1f4a">Plum</option>
+            </select>
+          </label>
+          <label>Text color
+            <select id="ssColor">
+              <option value="#ebe9df">Off-white</option>
+              <option value="#222222">Charcoal</option>
+              <option value="#ffd166">Yellow</option>
+            </select>
+          </label>
+          <label>Font
+            <select id="ssFont">
+              <option value="'Bungee', 'Arial Black', sans-serif">Bungee (bold)</option>
+              <option value="Georgia, serif">Georgia (classic)</option>
+              <option value="'Inter', Arial, sans-serif">Inter (clean)</option>
+            </select>
+          </label>
+          <label>Accent color (lines and links)
+            <select id="ssAccent">
+              <option value="#d4a359">Gold</option>
+              <option value="#ef476f">Pink</option>
+              <option value="#06d6a0">Mint</option>
+            </select>
+          </label>
+        </div>
+        <details class="peek">
+          <summary>Peek at the code in styles.css</summary>
+          <pre class="code" id="ssCode"></pre>
+        </details>
       </div>
-      <p class="hint">Try one:</p>
-      <div class="presets" id="pathPresets"></div>
-      <div class="pathstage">
-        <div class="tree" id="pathTree" aria-label="Folder tree"></div>
-        <ol class="log" id="pathLog" aria-live="polite"></ol>
-      </div>
-    </div>
-
-    <!-- B: one stylesheet, pages in different folders -->
-    <div id="see-sheet" class="subpanel" hidden>
-      <p>All four pages want the <strong>same</strong> <code>styles.css</code> in the top folder. But they live in different folders, so each needs <strong>different directions</strong> to reach it. Right now they all say <code>href="styles.css"</code>. <strong>Fix each one until every page is styled.</strong></p>
       <div class="minis" id="minis"></div>
-      <div class="feedback" id="sheetDone" aria-live="polite"></div>
     </div>
   </section>
 
@@ -115,85 +134,59 @@
   <section id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" class="panel" hidden>
     <h2>Practice</h2>
     <div class="subtabs">
-      <button class="sub active" data-sub="pr-debug">Broken-menu debugger</button>
-      <button class="sub" data-sub="pr-missing">Find the missing link line</button>
-      <button class="sub" data-sub="pr-quiz">Quiz</button>
+      <button class="sub active" data-sub="pr-fix">Fix the plain page</button>
+      <button class="sub" data-sub="pr-quiz">Quick quiz</button>
     </div>
 
-    <!-- debugger -->
-    <div id="pr-debug" class="subpanel">
-      <p id="debugIntro"></p>
+    <div id="pr-fix" class="subpanel">
+      <div class="gamebar"><span id="fixRound"></span><span id="fixScore"></span></div>
+      <p id="fixPrompt" class="prompt"></p>
       <div class="two">
         <div>
-          <div class="filetree-mini" id="debugFiles"></div>
-          <textarea id="debugCode" class="codeedit" rows="8" spellcheck="false" autocapitalize="off" aria-label="Menu code to fix"></textarea>
-          <div class="controls">
-            <button class="btn" id="debugCheck">Check my menu</button>
-            <button class="btn ghost" id="debugHint">Hint</button>
-            <button class="btn ghost" id="debugReset">Reset</button>
-            <button class="btn ghost" id="debugNext">Next menu →</button>
-          </div>
+          <p class="mini-h">The top of the page (its &lt;head&gt;):</p>
+          <pre class="code" id="fixCode"></pre>
         </div>
         <div>
-          <h3 class="mini-h">Where the browser looks for each link</h3>
-          <ul class="results" id="debugResults" aria-live="polite"></ul>
+          <p class="mini-h">What the page looks like:</p>
+          <div class="preview" id="fixPreview"></div>
         </div>
       </div>
+      <p class="mini-h">Which fix is right?</p>
+      <div class="options" id="fixOptions"></div>
+      <div class="feedback" id="fixFeedback" aria-live="polite"></div>
+      <button class="btn" id="fixNext" hidden>Next page →</button>
     </div>
 
-    <!-- missing line game -->
-    <div id="pr-missing" class="subpanel" hidden>
-      <div class="gamebar"><span id="missRound"></span><span id="missScore"></span></div>
-      <p id="missPrompt" class="prompt"></p>
-      <pre class="code" id="missCode"></pre>
-      <div class="options" id="missOptions"></div>
-      <div class="feedback" id="missFeedback" aria-live="polite"></div>
-      <button class="btn" id="missNext" hidden>Next round →</button>
-    </div>
-
-    <!-- quiz -->
     <div id="pr-quiz" class="subpanel" hidden>
       <div id="quizBox" class="quiz"></div>
     </div>
   </section>
 
-  <!-- ===================== STORY ===================== -->
-  <section id="panel-story" role="tabpanel" aria-labelledby="tab-story" class="panel" hidden>
-    <h2>Story: the night before it's due</h2>
-    <p>A short story about a real kind of bug. It stops at each problem so you can guess the fix before you see it.</p>
-    <div class="controls">
-      <label class="field inline"><span>Your name</span><input id="storyName" type="text" value="Nihal"></label>
-      <label class="field inline"><span>A friend's name</span><input id="storyFriend" type="text" value="Maya"></label>
-    </div>
-    <article class="story" id="storyOut" aria-live="polite"></article>
-  </section>
-
   <!-- ===================== LISTEN ===================== -->
   <section id="panel-listen" role="tabpanel" aria-labelledby="tab-listen" class="panel" hidden>
-    <h2>Listen: make a NotebookLM audio explainer</h2>
-    <p>Pick the part of paths that confuses you, or type your own question. You get two things to paste into <a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a>: checked notes to use as the <em>source</em>, and a prompt that tells the AI hosts exactly how to explain it.</p>
+    <h2>Listen: turn this into a podcast</h2>
+    <p><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> is a free Google tool that can turn notes into a short podcast-style audio explainer. Pick a question (or type your own), then follow the steps.</p>
 
     <div class="presets" id="listenPresets"></div>
     <label class="field">
-      <span>My question about paths</span>
+      <span>My question</span>
       <input id="listenInput" type="text">
     </label>
 
     <ol class="steps">
-      <li>Open NotebookLM and create a new notebook.</li>
-      <li>Add a source → <strong>Copied text</strong> → paste <strong>Box A</strong>.</li>
-      <li>In the Audio Overview card, choose <strong>Customize</strong> → paste <strong>Box B</strong> → Generate.</li>
-      <li>While you listen, keep the site map above open and point at each folder they mention.</li>
+      <li>Open NotebookLM and click <strong>New notebook</strong>.</li>
+      <li>Add a source → choose <strong>Copied text</strong> → paste <strong>Box A</strong>.</li>
+      <li>In the <strong>Audio Overview</strong> box, click <strong>Customize</strong> → paste <strong>Box B</strong> → <strong>Generate</strong>.</li>
     </ol>
 
     <div class="two">
       <div class="copybox">
-        <div class="copyhead"><strong>Box A · Source notes</strong><button class="btn small" data-copy="listenSource">Copy</button></div>
-        <textarea id="listenSource" readonly rows="14"></textarea>
+        <div class="copyhead"><strong>Box A · The notes</strong><button class="btn small" data-copy="listenSource">Copy</button></div>
+        <textarea id="listenSource" readonly rows="12"></textarea>
       </div>
       <div class="copybox">
-        <div class="copyhead"><strong>Box B · Customize prompt</strong><button class="btn small" data-copy="listenPrompt">Copy</button></div>
-        <textarea id="listenPrompt" readonly rows="14"></textarea>
+        <div class="copyhead"><strong>Box B · Instructions for the hosts</strong><button class="btn small" data-copy="listenPrompt">Copy</button></div>
+        <textarea id="listenPrompt" readonly rows="12"></textarea>
       </div>
     </div>
   </section>
