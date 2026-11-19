@@ -1,18 +1,26 @@
-# BMIS 235 · HTML-4 · Path 3: HTML Field Guide
+# HTML-4: HTML Field Guide
+**By:** Nihal (YOUR-GU-USERNAME)
+**Live site:** YOUR LIVE LINK (the `.pages.dev` link from Cloudflare)
 
-**Name:** Nihal
+## My path
+Path 3. TODO: why you picked it, in your own words (one or two sentences).
 
-A learning tool for the HTML-1 to HTML-3 concepts (tags, head vs body, links, paths, the stylesheet, the cascade). Pick a concept, then pick how you learn:
+## By hand vs by AI
+**I made:** My HTML-3 travel site in `travel/` (the four pages, the image menu, `styles.css` with my navy/off-white/gold brand and Bungee font, and the showcase block I adapted). I picked the six concepts the tool covers and the four learning modes. The Field Guide reuses my brand colors and font. TODO: add anything else you did yourself.
 
-- **🎧 Listen**: type a concept or question and get NotebookLM source notes plus an Audio Overview prompt, ready to paste.
-- **👀 See**: watch a link walk the folders to find a file (or hit a 404), watch one `styles.css` restyle four pages (and break one page's link line), and see the cascade decided live by the real browser.
-- **📖 Story**: each concept as a short story with characters, starring you and your site.
-- **🛠️ Practice**: a quiz, a broken-menu debugger (3 menus), and a "find the missing line" game (5 rounds).
+**AI made:** Claude Code (on claude.ai, connected to this GitHub repo) wrote the learning tool: `index.html`, `learn.css` and `learn.js`. That covers the concept notes, the NotebookLM prompt builder, the three animations (link finding a file, one stylesheet styling four pages, cascade referee), the six stories, the quiz, the broken-menu debugger and the missing-line game. It also moved my travel site into `travel/` and added `wrangler.jsonc`/`.assetsignore` for Cloudflare.
 
-Live site: https://YOUR-PROJECT.pages.dev  ← paste your Cloudflare link here
+**I checked it by:** TODO: describe what you actually did. Ideas:
+- Followed every path in "A link finding a file" myself and predicted the result before pressing play. Did the 404s happen where I expected?
+- Checked the cascade demo against my notes: later rule wins on a tie, class beats element, inline beats the stylesheet, inheritance loses to a direct rule.
+- Solved all 3 broken menus and all 5 missing-line rounds myself, and read every explanation looking for anything that was wrong.
+- Took every quiz question and checked the "why" text against the HTML-1 to HTML-3 lessons.
+- Opened the live site on my phone.
+- Note: Claude also ran an automated browser test of every mode before I saw it, but that only proves the code runs. It doesn't prove the explanations are correct.
 
-## Files
-- `index.html`, `learn.css`, `learn.js`: the learning tool (plain HTML/CSS/JS, no build step)
-- `travel/`: my HTML-3 travel site, kept as a real example
-- `FEEDBACK.md`: classmate test notes and what I changed
-- `wrangler.jsonc`, `.assetsignore`: only used if Cloudflare deploys this as a Worker
+## Path 3 only
+**Concept it teaches:** The HTML-1 to HTML-3 basics: tags, head vs body, links, paths, the stylesheet, and the cascade. Paths and the stylesheet get the most depth.
+
+**Built for how I learn because:** TODO: which mode works for you (Listen / See / Story / Practice) and why.
+
+**Tested by:** (classmate's first name) **What I changed:** TODO: after the classmate test, say what they struggled with and what you changed. Full notes are in `FEEDBACK.md`.
